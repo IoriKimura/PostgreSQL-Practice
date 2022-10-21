@@ -12,3 +12,7 @@ CREATE ROLE Sergey LOGIN PASSWORD 'little_sergey';
 
 GRANT worker TO Artem, Dmitry;
 GRANT manager TO Sergey;
+
+GRANT SELECT, INSERT, UPDATE ON tasks TO manager;
+GRANT SELECT, UPDATE ON tasks TO worker;
+
