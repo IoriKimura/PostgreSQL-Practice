@@ -18,8 +18,8 @@ GRANT SELECT, INSERT, UPDATE ON contracts to manager;
 GRANT SELECT ON clients, employee TO manager;
 
 GRANT SELECT ON employee TO worker;
-GRANT SELECT, UPDATE ON tasks TO worker;
-
+GRANT SELECT, UPDATE(finaltime) ON tasks TO worker;
+RESET ROLE;
 GRANT USAGE ON SCHEMA little_company to manager;
 GRANT USAGE ON SCHEMA little_company to worker;
 
@@ -35,6 +35,8 @@ CREATE POLICY worker_update ON tasks FOR UPDATE TO worker USING
 (
 	(SELECT employee_id FROM employee WHERE "position" = 'worker'::employee_role
 	AND nickname = user) = tasks.executor_id
+	AND 
+	(finaltime = Null)
 );
 
 CREATE POLICY manager_update ON tasks FOR UPDATE TO manager USING
