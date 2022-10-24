@@ -22,6 +22,7 @@ CREATE TABLE little_company.employee
 	phone VARCHAR(12) NOT NULL,
 	email VARCHAR(30) NOT NULL,
 	"position" employee_role NOT NULL
+	nickname TEXT UNIQUE NOT NULL
 );
 
 CREATE TABLE little_company.tasks
@@ -43,7 +44,6 @@ CREATE TABLE little_company.contracts
 	task_id SERIAL REFERENCES tasks (task_id),
 	equipment_id TEXT UNIQUE NOT NULL
 );
-
 
 
 
