@@ -61,3 +61,23 @@ $$ SELECT count(*) FROM little_company.tasks
 $$ language SQL;
 
 
+CREATE FUNCTION get_report(employee_id INTEGER, start_date TIMESTAMP WITHOUT TIME ZONE,
+						  end_date TIMESTAMP WITHOUT TIME ZONE)
+RETURNS TABLE (employee_id INTEGER,
+			  count_of_tasks INTEGER,
+			  count_of_tasks_in_time INETGER,
+			  count_of_tasks_not_in_time INTEGER,
+			  count_of_uncomplete_tasks INTEGER,
+			  count_of_in_progress_tasks INTEGER) AS 
+$$ SELECT employee_id, 
+			get_all_tasks(employee_id, start_date, end_date),
+			get_complete_tasks_in_time(employee_id, start_date, end_date),
+			get_complete_tasks_not_in_time(employee_id, start_date, end_date),
+			get_uncomplete_tasks(employee_id, start_date, end_date),
+			get_in_progress_tasks(employee_id, start_date, end_date);
+$$ language SQL;
+RESET ROLE;
+CREATE TEMP TABLE report ON COMMIT DROP 
+	AS SELECT  * FROM get_report(1, '2022-10-24'::timestamp without time zone, 
+								 '2022-10-30'::timestamp without time zone);
+COPY (SELECT * FROM report) TO 'C:\Users\Public\Documents\report.csv' CSV HEADER;
