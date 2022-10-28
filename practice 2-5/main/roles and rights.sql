@@ -4,6 +4,8 @@ SET SCHEMA 'little_company';
 --а в них уже добавляться наши рядовые работники и менеджеры.
 CREATE ROLE worker;
 CREATE ROLE manager;
+CREATE ROLE "ADMIN" NOSUPERUSER CREATEDB CREATEROLE NOINHERIT LOGIN PASSWORD 'admin_of_company'
+	CONNECTION LIMIT 1;
 
 --Создание пользователей работников компании
 CREATE ROLE Artem LOGIN PASSWORD 'little_artemius';
@@ -13,6 +15,7 @@ CREATE ROLE Sergey LOGIN PASSWORD 'little_sergey';
 GRANT worker TO Artem, Dmitry;
 GRANT manager TO Sergey;
 
+GRANT ALL ON ALL TABLES IN SCHEMA little_company TO "ADMIN";
 GRANT SELECT, INSERT, UPDATE ON tasks TO manager;
 GRANT SELECT, INSERT, UPDATE ON contracts to manager;
 GRANT SELECT ON clients, employee TO manager;
