@@ -44,7 +44,7 @@ $$ SELECT count(*) FROM little_company.tasks
 					WHERE ((employee_id = little_company.tasks.executor_id)
 						  AND (start_date <= little_company.tasks.creation)
 						  AND (end_date >= little_company.tasks.creation)
-						  AND (little_company.tasks.finaltime = NULL)
+						  AND (little_company.tasks.finaltime is NULL)
 						  AND (now() > little_company.tasks.deadline));
 $$ language SQL;
 
@@ -56,7 +56,7 @@ $$ SELECT count(*) FROM little_company.tasks
 					WHERE ((employee_id = little_company.tasks.executor_id)
 						  AND (start_date <= little_company.tasks.creation)
 						  AND (end_date >= little_company.tasks.creation)
-						  AND (little_company.tasks.finaltime = NULL)
+						  AND (little_company.tasks.finaltime is NULL)
 						  AND (now() < little_company.tasks.deadline));
 $$ language SQL;
 
@@ -84,6 +84,6 @@ COPY (SELECT * FROM report) TO 'C:\Users\Public\Documents\report.csv' CSV HEADER
 
 --Выгрузка отчёта в json формат
 -- 1. Нужно преобразовать строки в json объекты с помощью команды row_to_json()
-COPY (SELECT row_to_json(report) FROM get_report(1, '2022-10-24'::timestamp without time zone, 
-								 '2022-10-30'::timestamp without time zone) as report) 
-TO 'C:\Users\Public\Documents\report.json'; -- WITH (FORMAT text, HEADER false) применяется дефолтно
+ COPY (SELECT row_to_json(report) FROM get_report(1, '2022-10-24'::timestamp without time zone, 
+								 '2022-11-30'::timestamp without time zone) as report) 
+TO 'C:\Users\Public\Documents\report.json';-- WITH (FORMAT text, HEADER false) применяется дефолтно

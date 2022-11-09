@@ -1,12 +1,12 @@
 SET SCHEMA 'little_company';
-
-CREATE TRIGGER forgotten_on_year AFTER INSERT OR UPDATE ON little_company.tasks FOR EACH STATEMENT
-EXECUTE FUNCTION remove_after_year();
+RESET ROLE;
+CREATE TRIGGER forgotten_on_year BEFORE INSERT OR UPDATE ON tasks FOR EACH ROW EXECUTE PROCEDURE
+remove_after_year();
 
 CREATE FUNCTION remove_after_year() RETURNS TRIGGER AS $$
 	BEGIN 
-		DELETE FROM little_company.tasks WHERE CURRENT_TIMESTAMP >= little_company.tasks.deadline 
-		+ make_interval(years := 1);
+		DELETE FROM tasks WHERE CURRENT_TIMESTAMP >= (tasks.deadline 
+		+ make_interval(years => 1));
 		END;
 $$ LANGUAGE plpgsql;
 	
