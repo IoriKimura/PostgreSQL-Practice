@@ -25,6 +25,10 @@ CREATE TABLE little_company.employee
 	nickname TEXT UNIQUE NOT NULL
 );
 
+ALTER TABLE little_company.employee ADD COLUMN "password" text NOT NULL;
+ALTER TABLE little_company.employee DROP COLUMN nick_name;
+
+
 CREATE TABLE little_company.tasks
 (
 	task_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
