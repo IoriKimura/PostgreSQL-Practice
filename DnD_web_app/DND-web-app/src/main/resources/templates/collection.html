@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head xmlns:hf="http://www.w3.org/1999/xhtml">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Главная страница</title>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid" align="right">
+    <h2 class="navbar-brand">CRM</h2>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <a class="nav-link" href="/workers">Коллекция</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tasks">Создать персонажа</a>
+        </li>
+      </ul>
+      <div class="nab-item" align="right">
+      </div>
+      </form>
+
+      <form class="col" action="/logout" method="POST">
+        <input class="btn btn-secondary" style="background-color: darkblue" type="submit" value="Выход">
+      </form>
+    </div>
+  </div>
+</nav>
+<div style="width: 80%; margin: 10px auto;">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col-auto" style="margin: 10px 10px;" th:each="user: ${users}">
+      <div class="card h-100" style="min-width: 18rem; max-width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title" th:text="${user.getWeapon_name()}"></h5>
+          <p class="card-text" th:text="${user.getWeapon_price()}"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
