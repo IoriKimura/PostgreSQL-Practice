@@ -43,16 +43,13 @@ public class AuthController {
         }
         else{
             user.setPassword(passwordEncoder.encode(user.getPassword()));
-            userRepo.save(user); //ToDo: переписать на свой метод сохранения в БД.
+            userRepo.saveNewUser(user.getUser_name(), user.getNick_name(), user.getEmail(), user.getPassword());
             return "redirect:/login";
         }
     }
 
-    @GetMapping(value = "/collection")
-    public String showCollection(Model model){
-        Iterable<Characters> characters = characterRepo.findAll();
-        model.addAttribute("users", characters);
-        System.out.println(userRepo.findNameById(1));
-        return "collection";
+    @GetMapping("/")
+    public String mainPage(Model model){
+        return "/mainPage";
     }
 }
