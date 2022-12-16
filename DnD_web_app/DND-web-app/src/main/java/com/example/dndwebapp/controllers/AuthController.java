@@ -44,6 +44,7 @@ public class AuthController {
         else{
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             userRepo.saveNewUser(user.getUser_name(), user.getNick_name(), user.getEmail(), user.getPassword());
+            //ToDo: переписать на свой метод сохранения в БД.
             return "redirect:/login";
         }
     }
