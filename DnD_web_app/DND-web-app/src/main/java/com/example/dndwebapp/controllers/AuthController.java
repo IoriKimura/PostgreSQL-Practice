@@ -1,9 +1,12 @@
 package com.example.dndwebapp.controllers;
 
+import com.example.dndwebapp.models.Characters;
 import com.example.dndwebapp.models.Users;
 import com.example.dndwebapp.models.Weapons;
+import com.example.dndwebapp.repository.CharacterRepo;
 import com.example.dndwebapp.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +18,12 @@ public class AuthController {
 
     @Autowired
     UserRepo userRepo;
+
+    @Autowired
+    CharacterRepo characterRepo;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @GetMapping(value = "/login")
     public String loginPage(Model model){
@@ -32,17 +41,18 @@ public class AuthController {
             model.addAttribute("notification", "Такой пользователь уже есть!");
             return "registration";
         }
-//        Employee employeeFromDb = eRepo.findByEmail(employee.getEmail()); //TODO Совя процедура в БД
-//        if(employeeFromDb != null) {
-//
-//        }
-//        else {
-//            employee.setPassword(passwordEncoder.encode(employee.getPassword())); //
-//            eRepo.save(employee);
-//
-//        }
-//        return "redirect:/login";
-        else
+        else{
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            userRepo.save(user); //ToDo: переписать на свой метод сохранения в БД.
             return "redirect:/login";
+        }
+    }
+
+    @GetMapping(value = "/collection")
+    public String showCollection(Model model){
+        Iterable<Characters> characters = characterRepo.findAll();
+        model.addAttribute("users", characters);
+        System.out.println(userRepo.findNameById(1));
+        return "collection";
     }
 }
