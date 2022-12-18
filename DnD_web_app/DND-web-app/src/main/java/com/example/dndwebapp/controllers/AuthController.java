@@ -1,8 +1,6 @@
 package com.example.dndwebapp.controllers;
 
-import com.example.dndwebapp.models.Characters;
 import com.example.dndwebapp.models.Users;
-import com.example.dndwebapp.models.Weapons;
 import com.example.dndwebapp.repository.CharacterRepo;
 import com.example.dndwebapp.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +47,7 @@ public class AuthController {
         }
     }
 
-    @GetMapping("/")
+    @GetMapping(value = "/")
     public String mainPage(Model model){
         return "/mainPage";
     }

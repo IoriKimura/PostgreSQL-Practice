@@ -30,11 +30,13 @@
 </nav>
 <div style="width: 80%; margin: 10px auto;">
   <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col-auto" style="margin: 10px 10px;" th:each="user: ${users}">
+    <div class="col-auto" style="margin: 10px 10px;" th:each="character: ${characters}">
       <div class="card h-100" style="min-width: 18rem; max-width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title" th:text="${user.getUser_id()}"></h5>
-          <p class="card-text" th:text="${user.getCharacter_id()}"></p>
+          <h5 class="card-title" th:text="${character.getCharacter_name()}"></h5>
+          <p class="card-text" th:text="${character.getClass_name()}"></p>
+          <p class="card-text" th:text="${character.getRace_name()}"></p>
+          <p class="card-text" th:text="${character.getSubrace_name()}"></p>
         </div>
       </div>
     </div>
