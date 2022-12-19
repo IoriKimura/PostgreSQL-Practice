@@ -1,2 +1,4 @@
-# PostgreSQL Practice
+Репозиторий для практический заданий и курсовой работы по курсу "Программные средства манипулирования данными".
+
+PostgreSQL, Java, Spring Boot, Spring Security
  
