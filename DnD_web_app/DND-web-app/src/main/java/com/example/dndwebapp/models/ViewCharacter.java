@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Immutable;
 
 @Entity
 @Table(name = "characterCard", schema = "public")
@@ -24,4 +25,6 @@ public class ViewCharacter {
     private String race_name;
     @Column(name = "subrace_name")
     private String subrace_name;
+    @Column(name = "user_id")
+    private Long user_id;
 }
