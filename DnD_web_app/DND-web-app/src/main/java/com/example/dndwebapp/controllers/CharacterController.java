@@ -77,7 +77,6 @@ public class CharacterController {
         }
         catch(Exception e){
             return "redirect:/collection";
-
         }
         return "redirect:/collection";
     }
