@@ -27,7 +27,7 @@
   </div>
 </nav>
 <div class="container m-5" align="center" style="min-width:95%; padding: 0 20%;display: inline-block";>
-  <form class="g-3"  action="/creation/continue" method="GET">
+  <form class="g-3"  action="saved" method="POST">
     <div class="col-auto">
       <div class="input-group-prepend">
         <button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#subraceBtnInfo">
@@ -38,9 +38,6 @@
           <option th:each="subrace: ${subraces}" th:value="${subrace.getSubrace_id()}"
                   th:text="${subrace.getSubrace_name()}"></option>
         </select>
-      </div>
-      <div class="alert alert-primary" role="alert">
-        хуй гавно
       </div>
     </div>
     <div class="col-auto">
@@ -54,7 +51,6 @@
                   th:text="${weapon.getWeapon_name()}"></option>
         </select>
       </div>
-      <<<<<<< HEAD
       <div class="col-auto">
         <div class="input-group-prepend">
           <button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#armourBtnInfo">

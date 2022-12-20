@@ -29,6 +29,8 @@ public class CharacterController {
     @Autowired
     ArmourRepo armourRepo;
 
+    static String characterName = null;
+
     @GetMapping(value = "/creation")
     public String showCreation(Model model, Authentication auth){
         List<Classes> classesList = classesrepo.findAllClasses();
@@ -42,6 +44,7 @@ public class CharacterController {
 
     @PostMapping(value = "/creation/continue")
     public String continueCreate(Model model, String character_name,  Long race_id, Long class_id){
+        characterName = character_name;
         List<Subraces> subracesList = subracesRepo.findAllSubraces(race_id.intValue());
         model.addAttribute("subraces", subracesList);
         List<Weapons> weaponsList = weaponsRepo.findAllWeapons(class_id.intValue());
@@ -49,5 +52,11 @@ public class CharacterController {
         List<Armours> armoursList = armourRepo.findAllArmours(class_id.intValue());
         model.addAttribute("armours", armoursList);
         return "creationNext";
+    }
+
+    @PostMapping(value = "/saved")
+    public String savingCharacter(Model model){
+        System.out.println(characterName);
+        return "collection";
     }
 }
