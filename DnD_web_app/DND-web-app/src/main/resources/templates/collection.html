@@ -21,7 +21,7 @@
         <a th:text="${#authentication.getName()}"></a>
       </div>
       <form class="col" action="/logout" method="POST">
-        <input class="btn btn-secondary" style="background-color: darkblue" type="submit" value="Выход">
+        <input class="btn btn-secondary" style="background-color: darkblue; font-family: Algerian" type="submit" value="Log out">
       </form>
     </div>
   </div>
@@ -35,6 +35,9 @@
           <p class="card-text" th:text="${character.getClass_name()}"></p>
           <p class="card-text" th:text="${character.getRace_name()}"></p>
           <p class="card-text" th:text="${character.getSubrace_name()}"></p>
+          <p class="card-text" th:text="${character.getWeapon_name()}"></p>
+          <p class="card-text" th:text="${character.getArmour_name()}"></p>
+
         </div>
       </div>
     </div>

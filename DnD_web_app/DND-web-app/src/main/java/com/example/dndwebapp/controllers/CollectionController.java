@@ -29,7 +29,7 @@ public class CollectionController {
     @Transactional
     public String showCollection(Model model, Authentication auth){
         String userEmail = auth.getName();
-        Users user = userRepo.findByEmailForSecurity(userEmail);
+        Users user = userRepo.findUserByEmail(userEmail);
         List<ViewCharacter> characters = characterCardRepo.findCharacterByUserId(user.getUser_id().intValue());
         List<ViewCharacter> viewCharacters = characters;
         model.addAttribute("characters", viewCharacters);

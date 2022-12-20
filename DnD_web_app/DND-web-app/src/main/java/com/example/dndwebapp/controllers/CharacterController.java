@@ -2,14 +2,12 @@ package com.example.dndwebapp.controllers;
 
 import com.example.dndwebapp.models.*;
 import com.example.dndwebapp.repository.*;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -71,7 +69,7 @@ public class CharacterController {
                                   Authentication auth){
         String email = auth.getName();
         try{
-            characterRepo.saveNewCharacter(userRepo.findByEmailForSecurity(email).getUser_id().intValue(),
+            characterRepo.saveNewCharacter(userRepo.findUserByEmail(email).getUser_id().intValue(),
                     classId.intValue(), raceId.intValue(), subrace_id.intValue(),
                     weapon_id.intValue(), armour_id.intValue(), characterName);
         }

@@ -19,6 +19,6 @@ public class UserService implements UserDetailsService{
 
     @Override
     public UserDetails loadUserByUsername(String email) {
-        return userRepo.findByEmailForSecurity(email);
+        return userRepo.findUserByEmail(email);
     }
 }

@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface CharacterCardRepo extends JpaRepository<ViewCharacter, Long> {
 
-    @Query(value = "SELECT id, character_name, class_name, race_name, subrace_name, user_id FROM charactercard WHERE user_id = :userID", nativeQuery = true)
+    @Query(value = "SELECT * FROM charactercard WHERE user_id = :userID", nativeQuery = true)
     List<ViewCharacter> findCharacterByUserId(Integer userID);
 }
