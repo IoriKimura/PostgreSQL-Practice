@@ -25,4 +25,6 @@ public class Characters {
     private Long weapon_id;
     @Column(name = "armour_id")
     private Long armour_id;
+    @Column(name = "character_name")
+    private String character_name;
 }
