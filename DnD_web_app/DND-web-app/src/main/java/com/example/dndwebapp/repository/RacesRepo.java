@@ -1,6 +1,5 @@
 package com.example.dndwebapp.repository;
 
-import com.example.dndwebapp.models.Classes;
 import com.example.dndwebapp.models.Races;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
