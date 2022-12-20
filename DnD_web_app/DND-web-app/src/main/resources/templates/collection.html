@@ -14,7 +14,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="creation">Создать персонажа</a>
+          <a class="nav-link" href="creation">
+              <font color="black" face="Book Antiqua">Создать персонажа</font>
+          </a>
         </li>
       </ul>
       <div class="nab-item" align="right">
@@ -30,28 +32,30 @@
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col-auto" style="margin: 10px 10px;" th:each="character: ${characters}">
       <div class="card h-100" style="min-width: 18rem; max-width: 18rem;">
+          <div class="card-header">
+              <h5 class="card-title" style="font-family: 'Book Antiqua'"><strong th:text="${character.getCharacter_name()}"></strong></h5>
+          </div>
         <div class="card-body">
 <!--          Основна информация-->
-          <h5 class="card-title" th:text="${character.getCharacter_name()}"></h5>
-          <p class="card-text" th:text="${character.getClass_name()}"></p>
-          <p class="card-text" th:text="${character.getRace_name()}"></p>
-          <p class="card-text" th:text="${character.getSubrace_name()}"></p>
-          <p class="card-text" th:text="${character.getHp()} + ' - HP ' + ${character.getMp() + ' - MP'}"> </p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getClass_name()}"></p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getRace_name()}"></p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getSubrace_name()}"></p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getHp()} + ' - HP ' + ${character.getMp() + ' - MP'}"> </p>
 
           <!--          Блок атрибутов-->
-          <p class="card-text" th:text="${character.getClass_attribute()}"> </p>
-          <p class="card-text" th:text="${character.getRace_attribute()}"> </p>
-          <p class="card-text" th:text="${character.getSubrace_attribute()}"> </p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getClass_attribute()}"> </p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getRace_attribute()}"> </p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getSubrace_attribute()}"> </p>
 
           <!--          Блок оружия -->
-          <p class="card-text" th:text="${character.getWeapon_name()}"></p>
-          <p class="card-text" th:text="${character.getWeapon_dmg()}"></p>
-          <p class="card-text" th:if="${character.getWeapon_mana_cost()} != 0" th:text="${character.getWeapon_mana_cost()}"></p>
-          <p class="card-text" th:text="${character.getWeapon_price()}"></p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getWeapon_name()}"></p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getWeapon_dmg()}"></p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:if="${character.getWeapon_mana_cost()} != 0" th:text="${character.getWeapon_mana_cost()}"></p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getWeapon_price()}"></p>
 <!--          Блок брони-->
-          <p class="card-text" th:text="${character.getArmour_name()} + ' - Броня'"> </p>
-          <p class="card-text" th:text="${character.getArmour_points()} + ' - Очки брони'"> </p>
-          <p class="card-text" th:text="${character.getArmour_price()} + ' - Цена брони'"> </p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getArmour_name()} + ' - Броня'"> </p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getArmour_points()} + ' - Очки брони'"> </p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getArmour_price()} + ' - Цена брони'"> </p>
         </div>
 
         <div class="card-footer">
