@@ -54,7 +54,7 @@
                   th:text="${weapon.getWeapon_name()}"></option>
         </select>
       </div>
-<<<<<<< HEAD
+      <<<<<<< HEAD
       <div class="col-auto">
         <div class="input-group-prepend">
           <button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#armourBtnInfo">
@@ -66,7 +66,7 @@
                     th:text="${armour.getArmour_name()}"></option>
           </select>
         </div>
-    <button type="submit" class="btn btn-primary ml-3 btn-lg">Сохранить</button>
+        <button type="submit" class="btn btn-primary ml-3 btn-lg">Сохранить</button>
   </form>
 </div>
 <div class="modal fade" id="subraceBtnInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -98,15 +98,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          <div class="alert alert-primary" role="alert" th:each="weapon: ${weapons}" th:value="${weapon.getWeapon_id()}">
-            <div class="col-auto" th:text="${weapon.getWeapon_name()}">:</div>
-            <p>Урон оружия:</p>
-            <div th:text="${weapon.getWeapon_dmg()}"></div>
-            <p>Мана за применение:</p>
-            <div th:text="${weapon.getWeapon_mana_cost()}"></div>
-            <p>Стоимость оружия:</p>
-            <div th:text="${weapon.getWeapon_price()}"></div><br>
-          </div>
+        <div class="alert alert-primary" role="alert" th:each="weapon: ${weapons}" th:value="${weapon.getWeapon_id()}">
+          <div class="col-auto" th:text="${weapon.getWeapon_name()}">:</div>
+          <p>Урон оружия:</p>
+          <div th:text="${weapon.getWeapon_dmg()}"></div>
+          <p>Мана за применение:</p>
+          <div th:text="${weapon.getWeapon_mana_cost()}"></div>
+          <p>Стоимость оружия:</p>
+          <div th:text="${weapon.getWeapon_price()}"></div><br>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
