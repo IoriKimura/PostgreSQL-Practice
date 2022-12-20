@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <title>Danger Dungeon</title>
 </head>
-<body>
+<body style="background-color: antiquewhite;">
 <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
   <div class="container-fluid" align="right">
     <a class="navbar-brand" href="/">
@@ -31,13 +31,36 @@
     <div class="col-auto" style="margin: 10px 10px;" th:each="character: ${characters}">
       <div class="card h-100" style="min-width: 18rem; max-width: 18rem;">
         <div class="card-body">
+<!--          Основна информация-->
           <h5 class="card-title" th:text="${character.getCharacter_name()}"></h5>
           <p class="card-text" th:text="${character.getClass_name()}"></p>
           <p class="card-text" th:text="${character.getRace_name()}"></p>
           <p class="card-text" th:text="${character.getSubrace_name()}"></p>
-          <p class="card-text" th:text="${character.getWeapon_name()}"></p>
-          <p class="card-text" th:text="${character.getArmour_name()}"></p>
+          <p class="card-text" th:text="${character.getHp()} + ' - HP ' + ${character.getMp() + ' - MP'}"> </p>
 
+          <!--          Блок атрибутов-->
+          <p class="card-text" th:text="${character.getClass_attribute()}"> </p>
+          <p class="card-text" th:text="${character.getRace_attribute()}"> </p>
+          <p class="card-text" th:text="${character.getSubrace_attribute()}"> </p>
+
+          <!--          Блок оружия -->
+          <p class="card-text" th:text="${character.getWeapon_name()}"></p>
+          <p class="card-text" th:text="${character.getWeapon_dmg()}"></p>
+          <p class="card-text" th:if="${character.getWeapon_mana_cost()} != 0" th:text="${character.getWeapon_mana_cost()}"></p>
+          <p class="card-text" th:text="${character.getWeapon_price()}"></p>
+<!--          Блок брони-->
+          <p class="card-text" th:text="${character.getArmour_name()} + ' - Броня'"> </p>
+          <p class="card-text" th:text="${character.getArmour_points()} + ' - Очки брони'"> </p>
+          <p class="card-text" th:text="${character.getArmour_price()} + ' - Цена брони'"> </p>
+        </div>
+
+        <div class="card-footer">
+          <form style="display: inline" action="/logout" method="POST">
+            <input class="btn btn-secondary" style="background-color: darkblue; font-family: Algerian" type="submit" value="Edit">
+          </form>
+          <form style="display: inline" action="/logout" method="POST">
+            <input class="btn btn-secondary" style="background-color: darkblue; font-family: Algerian" type="submit" value="Delete">
+          </form>
         </div>
       </div>
     </div>
