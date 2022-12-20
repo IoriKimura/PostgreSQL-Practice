@@ -36,9 +36,6 @@
                   th:text="${subrace.getSubrace_name()}"></option>
         </select>
       </div>
-      <div class="alert alert-primary" role="alert">
-        хуй гавно
-      </div>
     </div>
     <div class="col-auto">
       <div class="input-group-prepend">
@@ -48,9 +45,6 @@
           <option th:each="weapon: ${weapons}" th:value="${weapon.getWeapon_id()}"
                   th:text="${weapon.getWeapon_name()}"></option>
         </select>
-      </div>
-      <div class="alert alert-primary" role="alert">
-        хуй гавно
       </div>
     <button type="submit" class="btn btn-primary ml-3 btn-lg">Сохранить</button>
   </form>
