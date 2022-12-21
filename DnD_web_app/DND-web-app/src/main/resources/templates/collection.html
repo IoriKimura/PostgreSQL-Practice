@@ -20,7 +20,7 @@
         </li>
       </ul>
       <div class="nab-item" align="right">
-        <a ><u th:text="${#authentication.getName()}" style="color: #faebd7; font-family: Book Antiqua"></u></a>
+          <a href="/personal" ><u th:text="${#authentication.getName()}" style="color: #faebd7; font-family: Book Antiqua"></u></a>
       </div>
       <form class="col" action="/logout" method="POST">
         <input class="btn btn-secondary" style="background-color: burlywood; font-family: Algerian; color: antiquewhite; border: 0" type="submit" value="Log out">
@@ -67,9 +67,6 @@
         </div>
 
         <div class="card-footer" style="background-color: #faebd7" align="right">
-          <form style="display: inline" action="/logout" method="POST">
-            <input class="btn btn-secondary" style="background-color: burlywood; font-family: Algerian; color: antiquewhite ; border: 0" type="submit" value="Edit">
-          </form>
           <form style="display: inline" action="/delete" method="POST">
               <span></span>
             <button name="characterID" th:value="${character.getId()}" class="btn btn-secondary" style="background-color: burlywood; font-family: Algerian; color: antiquewhite; border: 0" type="submit">

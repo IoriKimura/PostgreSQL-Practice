@@ -18,6 +18,10 @@ CREATE PROCEDURE deleteCharacter (INTEGER) AS
 	'DELETE FROM public.characters WHERE character_id = $1;'
 language SQL;
 
+CREATE PROCEDURE updatePassword (TEXT, INTEGER) AS
+	'UPDATE public.users SET password = $1 WHERE users.user_id = $2;'
+language SQL;
+
 
 
 

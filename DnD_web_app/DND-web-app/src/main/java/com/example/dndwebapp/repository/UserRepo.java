@@ -17,4 +17,10 @@ public interface UserRepo extends JpaRepository<Users, Long> {
 
     @Query(value = "CALL public.saveNewUser(:name, :nickName, :email, :password)", nativeQuery = true)
     void saveNewUser(String name, String nickName, String email, String password);
+
+    @Query(value = "SELECT user_id FROM users WHERE users.email = ?1", nativeQuery = true)
+    Integer findIdByEmail(String email);
+
+    @Query(value = "CALL public.updatepassword(:password, :userID)" , nativeQuery = true)
+    void updatePassword(String password, Integer userID);
 }
