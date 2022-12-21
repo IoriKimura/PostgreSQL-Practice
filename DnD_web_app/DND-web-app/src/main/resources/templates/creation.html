@@ -23,7 +23,7 @@
         </li>
       </ul>
       <div class="nab-item" align="right" style="color: #faebd7">
-        <a th:text="${#authentication.getName()}"></a>
+        <a ><u th:text="${#authentication.getName()}" style="color: #faebd7; font-family: Book Antiqua"></u></a>
       </div>
       <form class="col" action="/logout" method="POST">
         <input class="btn btn-secondary" style="background-color: burlywood; font-family: Algerian; border: 0" type="submit" value="Log out">

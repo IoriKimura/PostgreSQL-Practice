@@ -20,7 +20,7 @@
         </li>
       </ul>
       <div class="nab-item" align="right">
-        <a th:text="${#authentication.getName()}" style="color: bisque"></a>
+        <a ><u th:text="${#authentication.getName()}" style="color: #faebd7; font-family: Book Antiqua"></u></a>
       </div>
       <form class="col" action="/logout" method="POST">
         <input class="btn btn-secondary" style="background-color: burlywood; font-family: Algerian; color: antiquewhite; border: 0" type="submit" value="Log out">
@@ -29,36 +29,44 @@
   </div>
 </nav>
 <div style="width: 80%; margin: 10px auto;">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="row-cols-1 row-cols-md-3 g-4">
     <div class="col-auto" style="margin: 10px 10px;" th:each="character: ${characters}" >
-      <div class="card h-100" style="min-width: 18rem; max-width: 18rem; border: 0">
+      <div class="card h-100" style="min-width: 100%; max-width: 100%; border: 0">
           <div class="card-header" style="background-color: burlywood">
               <h5 class="card-title" style="font-family: 'Book Antiqua'"><strong th:text="${character.getCharacter_name()}"></strong></h5>
           </div>
-        <div class="card-body" style="background-color: #faebd7">
+        <div class="card-body g-3" style="background-color: #faebd7">
 <!--          Основна информация-->
+            <div class="row g-3">
+            <div class="col-auto" style="width: 25%">
           <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getClass_name()}"></p>
           <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getRace_name()}"></p>
           <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getSubrace_name()}"></p>
-          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getHp()} + ' - HP ' + ${character.getMp() + ' - MP'}"> </p>
-
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="'HP: ' +${character.getHp()} + ' MP: ' + ${character.getMp()    }"></p>
+            </div>
+            <div class="col-auto" style="width: 25%">
           <!--          Блок атрибутов-->
           <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getClass_attribute()}"> </p>
           <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getRace_attribute()}"> </p>
           <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getSubrace_attribute()}"> </p>
-
+            </div>
+                <div class="col-auto" style="width: 25%">
           <!--          Блок оружия -->
-          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getWeapon_name()}"></p>
-          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getWeapon_dmg()}"></p>
-          <p class="card-text" style="font-family: 'Book Antiqua'" th:if="${character.getWeapon_mana_cost()} != 0" th:text="${character.getWeapon_mana_cost()}"></p>
-          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getWeapon_price()}"></p>
-<!--          Блок брони-->
-          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getArmour_name()} + ' - Броня'"> </p>
-          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getArmour_points()} + ' - Очки брони'"> </p>
-          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="${character.getArmour_price()} + ' - Цена брони'"> </p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="'Оружие: ' + ${character.getWeapon_name()}"></p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="'Урон: ' +${character.getWeapon_dmg()}"></p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:if="${character.getWeapon_mana_cost()} != 0" th:text="'Мана за применение: ' +${character.getWeapon_mana_cost()}"></p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="'Стоимость: ' + ${character.getWeapon_price()}"></p>
+                </div>
+                <div class="col-auto" style="width: 25%">
+                    <!--          Блок брони-->
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="'Броня: ' +${character.getArmour_name()}"> </p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="'ОБ: ' +${character.getArmour_points()}"> </p>
+          <p class="card-text" style="font-family: 'Book Antiqua'" th:text="'Стоимость: ' +${character.getArmour_price()}"> </p>
+                    </div>
+                    </div>
         </div>
 
-        <div class="card-footer" style="background-color: #faebd7">
+        <div class="card-footer" style="background-color: #faebd7" align="right">
           <form style="display: inline" action="/logout" method="POST">
             <input class="btn btn-secondary" style="background-color: burlywood; font-family: Algerian; color: antiquewhite ; border: 0" type="submit" value="Edit">
           </form>
