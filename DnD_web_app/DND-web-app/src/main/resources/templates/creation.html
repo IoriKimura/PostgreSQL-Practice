@@ -8,25 +8,25 @@
 
 
 </head>
-<body class="bg-light">
-<nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+<body style="background-color: #7A2C28;">
+<nav class="navbar navbar-expand-lg" style="background-color: #3B0002;">
   <div class="container-fluid" align="right">
     <a class="navbar-brand" href="/">
-      <font color="black" face="Algerian">Danger Dungeon</font>
+      <font color="faebd7" face="Algerian">Danger Dungeon</font>
     </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="/collection">
-            <font color="black" face="Book Antiqua">Моя коллекция</font>
+            <font color="faebd7" face="Book Antiqua">Моя коллекция</font>
           </a>
         </li>
       </ul>
-      <div class="nab-item" align="right">
+      <div class="nab-item" align="right" style="color: #faebd7">
         <a th:text="${#authentication.getName()}"></a>
       </div>
       <form class="col" action="/logout" method="POST">
-        <input class="btn btn-secondary" style="background-color: darkblue; font-family: Algerian" type="submit" value="Log out">
+        <input class="btn btn-secondary" style="background-color: burlywood; font-family: Algerian; border: 0" type="submit" value="Log out">
       </form>
     </div>
   </div>
@@ -35,16 +35,16 @@
   <form class="g-3"  action="/creation/continue" method="POST">
     <div class="col-auto">
       <div class="input-group-prepend">
-        <span class="input-group-text mb-4">Имя персонажа</span>
-        <input type="text" class="form-control ml-1" name="character_name" required>
+        <span class="input-group-text mb-4" style="background-color: #faebd7; width: 27%">Имя персонажа</span>
+        <input type="text" class="form-control ml-1" name="character_name" style="background-color: #faebd7" required>
       </div>
     </div>
     <div class="col-auto">
       <div class="input-group-prepend">
-        <button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#raceBtnInfo">
+        <button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#raceBtnInfo" style="background-color: burlywood; width: 35%">
         Раса
         </button>
-        <select type="text" class="form-control ml-1" name="race_id">
+        <select type="text" class="form-control ml-1" name="race_id" style="background-color: #faebd7">
           <option selected disabled>Выберите расу</option>
           <option th:each="race: ${races}" th:value="${race.getRace_id()}"
                   th:text="${race.getRace_name()}"></option>
@@ -53,17 +53,17 @@
     </div>
     <div class="col-auto">
       <div class="input-group-prepend">
-        <button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#classBtnInfo">
+        <button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#classBtnInfo" style="background-color: burlywood; width: 35%">
           Класс
         </button>
-        <select type="text" class="form-control ml-1" name="class_id">
+        <select type="text" class="form-control ml-1" name="class_id" style="background-color: #faebd7">
           <option selected disabled>Выберите класс</option>
           <option th:each="class: ${classes}" th:value="${class.getClass_id()}"
                   th:text="${class.getClass_name()}">
           </option>
         </select>
         </div>
-      <button type="submit" class="btn btn-primary ml-3 btn-lg">Далее</button>
+      <button type="submit" class="btn btn-primary ml-3 btn-lg" style="background-color: burlywood; border: 0">Далее</button>
     </div>
   </form>
 </div>
