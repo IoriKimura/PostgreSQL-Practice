@@ -11,4 +11,7 @@ public interface CharacterRepo extends JpaRepository<Characters, Long> {
             ":weaponID, :armourID, :characterName)", nativeQuery = true)
     void saveNewCharacter(Integer userID, Integer classID, Integer raceID, Integer subraceID,
                      Integer weaponID, Integer armourID, String characterName);
+
+    @Query(value = "CALL public.deletecharacter(:characterID)", nativeQuery = true)
+    void deleteCharacter(Integer characterID);
 }

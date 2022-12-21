@@ -14,6 +14,10 @@ CREATE PROCEDURE savenewcharacter (INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, 
 	weapon_id, armour_id, character_name) VALUES($1, $2, $3, $4, $5, $6, $7);'
 language SQL;
 
+CREATE PROCEDURE deleteCharacter (INTEGER) AS
+	'DELETE FROM public.characters WHERE character_id = $1;'
+language SQL;
+
 
 
 

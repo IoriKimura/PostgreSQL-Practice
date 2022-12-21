@@ -10,6 +10,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -35,5 +37,16 @@ public class CollectionController {
         model.addAttribute("characters", viewCharacters);
 
         return "collection";
+    }
+
+    @PostMapping(value = "/delete")
+    public String deleteCharacter(Model model, @RequestParam Integer characterID){
+        try{
+            characterRepo.deleteCharacter(characterID);
+        }
+        catch (Exception e){
+            return "redirect:/collection";
+        }
+        return "redirect:/collection";
     }
 }
