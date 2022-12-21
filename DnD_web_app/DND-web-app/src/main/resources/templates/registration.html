@@ -5,18 +5,6 @@
   <title>Danger Dungeon</title>
 </head>
 <body class="bg-image" style="background-image: url('https://img2.reactor.cc/pics/post/full/%D0%9F%D0%BB%D0%BE%D1%81%D0%BA%D0%B8%D0%B9-%D0%9C%D0%B8%D1%80-%D1%84%D1%8D%D0%BD%D0%B4%D0%BE%D0%BC%D1%8B-%D0%A1%D0%BC%D0%B5%D1%80%D1%82%D1%8C-%D0%9A%D1%80%D1%8B%D1%81-%D0%9C%D1%80%D0%B0%D1%87%D0%BD%D1%8B%D0%B9-%D0%B6%D0%BD%D0%B5%D1%86-3966950.jpeg')">
-<nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
-  <div class="container-fluid" align="right">
-    <h2 class="navbar-brand">
-      <font color="black" face="Algerian">Danger Dungeon</font>
-    </h2>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <form class="col" action="/login" method="GET">
-        <input class="btn btn-secondary" style="background-color: darkblue; font-family: Algerian" type="submit" value="Log In">
-      </form>
-    </div>
-  </div>
-</nav>
 
 <h1 align="center" class="display-4 mb-5">
   <font color="#f5f5f5" face="Algerian">Enter Your Data</font>
@@ -26,11 +14,12 @@
     <input class="row m-3" type="email" name="email" placeholder="Почта" required>
     <input class="row m-3" type="text" name="user_name" placeholder="ФИО" required>
     <input class="row m-3" type="text" name="nick_name" placeholder="Ник" required>
-    <input class="row mb-3" type="password" name="password" placeholder="Введите пароль" required>
-    <input style="font-family: Algerian" class="row btn btn-primary" type="submit" value="Send">
+    <input class="row mb-3" type="password" name="password" pattern="[A-Za-z0-9]{8,}" placeholder="Введите пароль" required>
+    <input style="font-family: Algerian; background-color: burlywood" class="row btn btn-primary" type="submit" value="Send">
   </form>
-  <br>
-  <div class="alert alert-danger" role="alert" th:if="${notification}" th:text="${notification}" align="center">
+  <form class="col" action="/login" method="GET">
+    <input class="btn btn-secondary m-1" style="background-color: burlywood; font-family: Algerian" type="submit" value="Log In">
+  </form>
   </div>
 </div>
 
