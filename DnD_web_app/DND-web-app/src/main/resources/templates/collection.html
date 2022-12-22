@@ -29,6 +29,10 @@
   </div>
 </nav>
 <div style="width: 80%; margin: 10px auto;">
+    <h1 align="center" th:if="${characters.isEmpty()}" class="m-5" style="font-family: 'Book Antiqua'; color: #faebd7">
+        Пока что у вас нет ни одного персонажа :(<br>
+        Давайте создадим нового!
+    </h1>
   <div class="row-cols-1 row-cols-md-3 g-4">
     <div class="col-auto" style="margin: 10px 10px;" th:each="character: ${characters}" >
       <div class="card h-100" style="min-width: 100%; max-width: 100%; border: 0">
