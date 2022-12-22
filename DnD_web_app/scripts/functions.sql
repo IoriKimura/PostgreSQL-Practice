@@ -23,19 +23,3 @@ CREATE PROCEDURE updatePassword (TEXT, INTEGER) AS
 language SQL;
 
 
-
-
-CREATE FUNCTION findCharactersByUserId (INTEGER)
-RETURNS TABLE ("id" INTEGER, 
-			   character_name TEXT,
-			   class_name TEXT,
-			   race_name TEXT,
-			   subrace_name TEXT,
-			   user_id INTEGER)
-AS 
-'SELECT id, 
-	character_name, 
-	class_name, 
-	race_name, 
-	subrace_name, user_id FROM charactercard WHERE user_id = $1;'
-language SQL;
