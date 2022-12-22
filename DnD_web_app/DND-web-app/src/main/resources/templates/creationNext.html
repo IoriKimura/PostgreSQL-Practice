@@ -101,7 +101,7 @@
       </div>
       <div class="modal-body">
         <div class="alert alert-primary" role="alert" th:each="weapon: ${weapons}" th:value="${weapon.getWeapon_id()}">
-          <div class="col-auto" th:text="${weapon.getWeapon_name()}">:</div>
+          <div th:text="${weapon.getWeapon_name()}">:</div>
           <p>Урон оружия:</p>
           <div th:text="${weapon.getWeapon_dmg()}"></div>
           <p>Мана за применение:</p>
@@ -126,7 +126,7 @@
       </div>
       <div class="modal-body">
         <div class="alert alert-primary" role="alert" th:each="armour: ${armours}" th:value="${armour.getArmour_id()}">
-          <div class="col-auto" th:text="${armour.getArmour_name()}">:</div>
+          <div th:text="${armour.getArmour_name()}">:</div>
           <p>Очков брони:</p>
           <div th:text="${armour.getArmour_points()}"></div>
           <p>Стоимость брони:</p>
