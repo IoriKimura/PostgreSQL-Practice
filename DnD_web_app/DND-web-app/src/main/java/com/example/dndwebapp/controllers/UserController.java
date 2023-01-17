@@ -33,9 +33,9 @@ public class UserController {
             userRepo.updatePassword(password, userID);
         }
         catch (Exception e){
-            return "redirect:/personal";
+            return "redirect:/logout";
         }
-        return "redirect:/personal";
+        return "redirect:/logout";
     }
 }
 
